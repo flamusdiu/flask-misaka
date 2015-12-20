@@ -72,7 +72,7 @@ API
 Options
 -------
 Misaka is very customizable, and `supports many Markdown extensions
-<http://misaka.61924.nl/api/>`_. Flask-Misaka provides a nicer API for these
+<http://misaka.61924.nl/#api>`_. Flask-Misaka provides a nicer API for these
 extensions. All functions in the public API (except :py:meth:`Misaka.init_app`)
 accept the following boolean arguments, all of which default to False:
 
@@ -89,9 +89,6 @@ accept the following boolean arguments, all of which default to False:
 |                       | will be considered as code, without the need to be    |
 |                       | indented. An optional language name may be added at   |
 |                       | the end of the opening fence for the code block.      |
-+-----------------------+-------------------------------------------------------+
-| ``lax_html`` *or*     | HTML blocks do not require to be surrounded by an     |
-| ``lax_html_blocks``   | empty line as in the Markdown standard.               |
 +-----------------------+-------------------------------------------------------+
 | ``no_intra_emphasis`` | Do not parse emphasis inside of words. Strings such   |
 |                       | as ``foo_bar_baz`` will not generate ``<em>`` tags.   |
@@ -119,26 +116,18 @@ accept the following boolean arguments, all of which default to False:
 +-----------------------+-------------------------------------------------------+
 | ``escape``            | Escape all HTML tags, regardless of what they are.    |
 +-----------------------+-------------------------------------------------------+
-| ``skip_html`` *or*    | Do not allow any user-inputted HTML in the output.    |
-| ``no_html``           |                                                       |
-+-----------------------+-------------------------------------------------------+
-| ``skip_images`` *or*  | Do not generate any ``<img>`` tags.                   |
-| ``no_images``         |                                                       |
-+-----------------------+-------------------------------------------------------+
-| ``skip_links`` *or*   | Do not generate any ``<a>`` tags.                     |
-| ``no_links``          |                                                       |
-+-----------------------+-------------------------------------------------------+
-| ``skip_style`` *or*   | Do not generate any ``<style>`` tags.                 |
-| ``no_style``          |                                                       |
-+-----------------------+-------------------------------------------------------+
-| ``smartypants``       | Post-process rendered markdown text with              |
-|                       | `SmartyPants`_.                                       |
-+-----------------------+-------------------------------------------------------+
-| ``toc`` *or*          | Render a table of contents.                           |
-| ``toc_tree``          |                                                       |
-+-----------------------+-------------------------------------------------------+
 | ``use_xhtml`` *or*    | Output XHTML-conformant tags.                         |
 | ``xhtml``             |                                                       |
++-----------------------+-------------------------------------------------------+
+| ``quotes``            |                                                       |
++-----------------------+-------------------------------------------------------+
+| ``math``              |                                                       |
++-----------------------+-------------------------------------------------------+
+| ``math_explicit``     |                                                       |
++-----------------------+-------------------------------------------------------+
+| ``space_headers``     |                                                       |
++-----------------------+-------------------------------------------------------+
+| ``highlight``         |                                                       |
 +-----------------------+-------------------------------------------------------+
 
 Any option that starts with ``no_`` can also be passed as its inverse set to
@@ -157,11 +146,11 @@ exactly the same effect.
 .. _Jinja2: http://jinja.pocoo.org/
 .. _Misaka: http://misaka.61924.nl/
 .. _Markdown: http://en.wikipedia.org/wiki/Markdown
-.. _Sundown: https://github.com/vmg/sundown
+.. _Hoedown: https://github.com/hoedown/hoedown
 .. _PHP-Markdown tables: http://michelf.com/projects/php-markdown/extra/#table
 .. _SmartyPants: http://daringfireball.net/projects/smartypants/
 
 .. rubric:: Footnotes
 .. [#technically]
-  (Technically, `Misaka`_ is just a Python binding to the `Sundown`_ library,
+  (Technically, `Misaka`_ is just a Python binding to the `Hoedown`_ library,
   which is written in C.)
